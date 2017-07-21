@@ -1,0 +1,17 @@
+{
+  "name": "EasyProject",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack",
+    "start-server": "webpack-dev-server"
+  },
+  "devDependencies": {
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^2.29.0"
+  }
+}
