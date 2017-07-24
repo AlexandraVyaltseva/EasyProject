@@ -1,15 +1,18 @@
 import angular from 'angular';
-const app = angular.module('app', []);
+import calculatorCtrl from './calculator.controller';
 
-app.controller('ctrl', function($scope){
-    $scope.first = 1;
-    $scope.second = 1;
+angular.
+    module('app', [])
+    .component('calculator', {
+        template: `<div>
+      <input type="number" ng-model="$ctrl.first" />
+      <input type="number" ng-model="$ctrl.second" />
+      <button ng-click="$ctrl.updateValue()"> Sum </button>
+      <br>
+      {{$ctrl.calculation}}
+    </div>`,
 
-    $scope.updateValue = () => {
-        $scope.calculation = (+ $scope.first + + $scope.second);
+    controller: calculatorCtrl,
 
-    };
-
-});
-
-export{app};
+    });
+    
