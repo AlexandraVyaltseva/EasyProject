@@ -12,6 +12,7 @@
     "webpack-dev-server": "^2.5.1"
   },
   "dependencies": {
+    "angular": "^1.6.5",
     "html-webpack-plugin": "^2.29.0"
   }
 }

@@ -11,13 +11,11 @@ export function sortArr(){
 
 export let group = {
   title: "Наш курс",
-  students: ["Вася", "Петя", "Даша"],
-
+  students: ["НеВася", "НеПетя", "НеДаша"],
   showList: function() {
     this.students.forEach(
       student => alert(this.title + ': ' + student)     
     )
   }
 }
-
 
