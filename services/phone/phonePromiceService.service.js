@@ -4,7 +4,7 @@ export default class Service {
 
     }
     getPhonesList() {
-        let deffered = $q.defer();
+        let deffered = this.$q.defer();
         Phone.query()
             .then(response => {
                     deffered.resolve(response);
@@ -30,6 +30,6 @@ export default class Service {
     // }
 }
 
-// Service.$inject = ['Phone', '$q'];
+Service.$inject = ['Phone', '$q'];
 
 // Service.$inject = [];
