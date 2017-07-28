@@ -1,14 +1,11 @@
-export default class {
-    constructor() {
-        this.phones = [{
-            name: 'Nexus S',
-            snippet: 'Fast just got faster with Nexus S.'
-        }, {
-            name: 'Motorola XOOM™ with Wi-Fi',
-            snippet: 'The Next, Next Generation tablet.'
-        }, {
-            name: 'MOTOROLA XOOM™',
-            snippet: 'The Next, Next Generation tablet.'
-        }];
+export default class Controller {
+    constructor(PhonePromiceServise) {
+        PhonePromiceServise.getPhonesList().then(data => {
+            console.log(data);
+            this.phones = data;
+        });
+        this.orderProp = 'age';
     }
 }
+
+// Controller.$inject = ['PhonePromiceServise'];

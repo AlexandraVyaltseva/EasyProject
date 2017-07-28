@@ -1,5 +1,5 @@
-export default class {
-    constructor($resourse) {
+export default class Service {
+    constructor($resource) {
         return $resource('phones/:phoneId.json', {}, {
             query: {
                 method: 'GET',
@@ -7,6 +7,5 @@ export default class {
                 isArray: true
             }
         });
-
     }
 }

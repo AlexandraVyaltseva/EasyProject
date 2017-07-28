@@ -1,5 +1,3 @@
-import 'angular-route';
-
 export default function routing($urlRouterProvider, $locationProvider) {
     $locationProvider.hashPrefix('!');
 
