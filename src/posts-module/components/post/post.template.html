@@ -1,0 +1,14 @@
+<md-list-item>
+    <md-card>
+        <img ng-src="{{$ctrl.imageUrl}}" class="md-card-image" alt="image caption">
+        <md-card-content>
+            <span>{{$ctrl.title}}</span>
+            <p>{{$ctrl.description}}</p>
+            <p>{{$ctrl.uploadDate}}</p>
+            <p>{{$ctrl.likes}}</p>
+            <md-button type="button" ng-click="$ctrl.showComments()">Показать комментарии</md-button>
+            <!-- <div id = "divForComments"></div> -->
+            <!-- <comments-list comments='$ctrl.comments'></comments-list> -->
+        </md-card-content>
+    </md-card>
+</md-list-item>

@@ -1,3 +1,3 @@
-import '../services/phone/phone.module'
+import './posts-module/posts.module'
 
-angular.module('app', ['phoneModule']);
+angular.module('app', ['postsModule']);
