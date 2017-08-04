@@ -6,9 +6,8 @@
             <p>{{$ctrl.description}}</p>
             <p>{{$ctrl.uploadDate}}</p>
             <p>{{$ctrl.likes}}</p>
-            <md-button type="button" ng-click="$ctrl.showComments()">Показать комментарии</md-button>
-            <!-- <div id = "divForComments"></div> -->
-            <!-- <comments-list comments='$ctrl.comments'></comments-list> -->
+            <md-button type="button" ng-click="$ctrl.showComments()"> {{$ctrl.buttonText}} ({{$ctrl.commentsCnt}})</md-button>
+            <comments-list ng-if="$ctrl.comments.length!=0" comments='$ctrl.comments'></comments-list>
         </md-card-content>
     </md-card>
 </md-list-item>
