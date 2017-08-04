@@ -32,7 +32,5 @@ export default class {
             this.buttonText = 'Показать комментарии';
             this.isShown = false;
         }
-
-
     }
 }

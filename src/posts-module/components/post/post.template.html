@@ -1,11 +1,19 @@
-<md-list-item>
+<md-list-item layout-align="center center">
     <md-card>
         <img ng-src="{{$ctrl.imageUrl}}" class="md-card-image" alt="image caption">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{$ctrl.title}}</span>
+            </md-card-title-text>
+        </md-card-title>
         <md-card-content>
-            <span>{{$ctrl.title}}</span>
             <p>{{$ctrl.description}}</p>
-            <p>{{$ctrl.uploadDate}}</p>
-            <p>{{$ctrl.likes}}</p>
+            <div layout-padding layout="row" layout-align="end center">
+                <p>{{$ctrl.likes}} </p>
+
+                <p>{{$ctrl.uploadDate}}</p>
+            </div>
+
             <md-button type="button" ng-click="$ctrl.showComments()"> {{$ctrl.buttonText}} ({{$ctrl.commentsCnt}})</md-button>
             <comments-list ng-if="$ctrl.comments.length!=0" comments='$ctrl.comments'></comments-list>
         </md-card-content>

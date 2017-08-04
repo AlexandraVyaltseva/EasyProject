@@ -3,6 +3,7 @@ import 'angular-material'
 import 'angular-material/angular-material.min.css'
 import 'angular-resource'
 import 'angular-ui-router'
+import 'angular-material-icons'
 
 import postslist from './components/posts-list/posts-list.component'
 import post from './components/post/post.component'

@@ -1,4 +1,4 @@
 <md-content class="md-padding">
     <md-nav-bar nav-bar-aria-label="navigation links">
-        <md-nav-item ng-repeat="item in $ctrl.menuItems" md-nav-href="#!{{item.link}}" name="{{item.link}}"> {{item.name}} </md-nav-item>
+        <md-nav-item ng-repeat="item in $ctrl.menuItems" md-nav-sref="{{item.link}}" name="{{item.link}}"> {{item.name}} </md-nav-item>
 </md-content>

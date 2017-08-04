@@ -1,18 +1,15 @@
-<div>
-    <!-- <div class="col-md-2">
-        Search:
-        <md-input-container><input ng-model="$ctrl.query" /> </md-input-container>
-    </div> -->
-    <md-input-container>
-        <label>Сортировать:</label>
-        <md-select ng-model="$ctrl.orderProp">
-            <md-option value="title">По алфавиту</md-option>
-            <md-option value="-likes">По популярности</md-option>
-            <md-option value="-uploadDate">По дате</md-option>
-        </md-select>
-    </md-input-container>
-    <md-list flex>
-        <post ng-repeat="post in $ctrl.posts | orderBy:$ctrl.orderProp" post="post"></post>
-    </md-list>
-    <p>Total number of posts: {{$ctrl.posts.length}}</p>
-</div>
+<md-content layout="row" layout-align="center">
+    <md-content layout-padding>
+        <md-input-container>
+            <label>Сортировать:</label>
+            <md-select ng-model="$ctrl.orderProp">
+                <md-option value="title">По алфавиту</md-option>
+                <md-option value="-likes">По популярности</md-option>
+                <md-option value="-uploadDate">По дате</md-option>
+            </md-select>
+        </md-input-container>
+        <md-list layout-align="center center">
+            <post ng-repeat="post in $ctrl.posts | orderBy:$ctrl.orderProp" post="post"></post>
+        </md-list>
+    </md-content>
+</md-content>
