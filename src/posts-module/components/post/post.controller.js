@@ -16,21 +16,23 @@ export default class {
     }
 
     showComments() {
-        //console.log(this.id);
-        if (this.isShown === false) {
+        if (this.isShown === false && this.comments == null) {
             this.commentService.getComments(this.id).then(response => {
-                //console.log(response.data);
+                console.log(response.data);
                 this.comments = response.data;
                 if (this.comments.length != 0) {
                     this.buttonText = 'Скрыть комментарии';
                     this.isShown = true;
                 }
-
             });
         } else {
-            this.comments = [];
-            this.buttonText = 'Показать комментарии';
-            this.isShown = false;
+            if (this.isShown === false) {
+                this.buttonText = 'Скрыть комментарии';
+                this.isShown = true;
+            } else {
+                this.buttonText = 'Показать комментарии';
+                this.isShown = false;
+            }
         }
     }
 }

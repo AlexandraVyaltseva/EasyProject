@@ -5,22 +5,28 @@ import 'angular-resource'
 import 'angular-ui-router'
 import 'angular-material-icons'
 
-import postslist from './components/posts-list/posts-list.component'
+import postsList from './components/posts-list/posts-list.component'
+import mypostsList from './components/my-posts-list/my-posts-list.component'
 import post from './components/post/post.component'
-import commentslist from './components/comments-list/comments-list.component'
+import commentsList from './components/comments-list/comments-list.component'
 import comment from './components/comment/comment.component'
 import nav from './components/nav-bar/nav-bar.component'
+import signinForm from './components/sign-in-form/sign-in-form.component'
+import signupForm from './components/sign-up-form/sign-up-form.component'
 
 import postService from './services/post-data.service';
 import commentService from './services/comment-data.service';
 
 
 angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource'])
-    .component('postsList', postslist)
+    .component('postsList', postsList)
+    .component('mypostsList', mypostsList)
     .component('post', post)
-    .component('commentsList', commentslist)
+    .component('commentsList', commentsList)
     .component('comment', comment)
     .component('navBar', nav)
+    .component('signinForm', signinForm)
+    .component('signupForm', signupForm)
     .config(['$stateProvider', '$urlRouterProvider',
         function config($stateProvider, $urlRouterProvider) {
             $stateProvider
@@ -30,11 +36,19 @@ angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource'])
                 })
                 .state('myposts', {
                     url: "/myposts",
-                    template: '<p>Вас пока нет, и нет Ваших фото</p>'
+                    template: '<myposts-list></myposts-list>'
+                })
+                .state('signin', {
+                    url: "/signin",
+                    template: '<signin-form></signin-form>'
+                })
+                .state('signup', {
+                    url: "/signup",
+                    template: '<signup-form></signup-form>'
                 });
 
             $urlRouterProvider.otherwise('/posts');
         }
     ])
-    .factory('postService', postService)
+    .service('postService', postService)
     .service('commentService', commentService);

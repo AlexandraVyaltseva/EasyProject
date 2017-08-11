@@ -8,8 +8,6 @@
                 <md-option value="-uploadDate">По дате</md-option>
             </md-select>
         </md-input-container>
-        <md-list layout-align="center center">
-            <post ng-repeat="post in $ctrl.posts | orderBy:$ctrl.orderProp" post="post"></post>
-        </md-list>
+        <post ng-repeat="post in $ctrl.posts | orderBy:$ctrl.orderProp" post="post"></post>
     </md-content>
 </md-content>

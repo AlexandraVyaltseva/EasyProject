@@ -1,0 +1,6 @@
+<md-content layout="row" layout-align="center">
+    <md-content layout-padding>
+        <md-button type="button" ng-click="showPrompt($event)">Добавить пост</md-button>
+        <post ng-repeat="post in $ctrl.posts | orderBy:$ctrl.orderProp" post="post"></post>
+    </md-content>
+</md-content>
