@@ -6,6 +6,7 @@ export default class {
     }
 
     $onInit() {
+        this.user = this.post.user;
         this.title = this.post.title;
         this.id = this.post.id;
         this.imageUrl = this.post.imageUrl;

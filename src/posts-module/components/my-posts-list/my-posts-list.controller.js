@@ -5,7 +5,11 @@ export default class Controller {
             this.posts = response.data;
         });
         this.orderProp = '-uploadDate';
+        this.isShown = false;
+    }
+    createPost() {
+        this.isShown = !this.isShown;
     }
 
-    
+
 }

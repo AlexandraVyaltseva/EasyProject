@@ -1,18 +1,31 @@
+<md-card>
+    <!-- <md-card-header>
+        <md-card-header-text>
+            <span class="md-title">{{$ctrl.user}}</span>
+            <span class="md-subhead">{{$ctrl.uploadDate}}</span>
+        </md-card-header-text>
+    </md-card-header> -->
 
-    <md-card>
-        <img ng-src="{{$ctrl.imageUrl}}" class="md-card-image" alt="image caption">
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">{{$ctrl.title}}</span>
-            </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
-            <p>{{$ctrl.description}}</p>
-            <div layout-padding layout="row" layout-align="end center">
-                <md-subheader>{{$ctrl.uploadDate}}</md-subheader>
-                <md-subheader>{{$ctrl.likes}}</md-subheader>
-            </div>
-            <md-button type="button" ng-click="$ctrl.showComments()"> {{$ctrl.buttonText}} ({{$ctrl.commentsCnt}})</md-button>
-            <comments-list ng-if="$ctrl.isShown===true" comments='$ctrl.comments'></comments-list>
-        </md-card-content>
-    </md-card>
+    <img ng-src="{{$ctrl.imageUrl}}" class="md-card-image" alt="image caption">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{$ctrl.title}}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        <p>{{$ctrl.description}}</p>
+
+        <div layout="row" layout-align="end center">
+            <span style="font-size:small; margin: 5px;">Пользователь {{$ctrl.user}}</span>
+            <span style="font-size:small; margin: 5px;">{{$ctrl.uploadDate}}</span>
+            <span style="font-size:small; margin: 5px;">{{$ctrl.likes}}</span>
+        </div>
+
+        <new-comment></new-comment>
+
+        <md-button flex type="button" ng-click="$ctrl.showComments()" ng-disabled="$ctrl.commentsCnt===0"> {{$ctrl.buttonText}} ({{$ctrl.commentsCnt}})</md-button>
+        <comments-list ng-if="$ctrl.isShown" comments='$ctrl.comments'></comments-list>
+
+
+    </md-card-content>
+</md-card>

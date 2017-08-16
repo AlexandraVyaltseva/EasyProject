@@ -1,18 +1,18 @@
 [{
         "postId": 1,
-        "author": "Sasha",
+        "user": "Sasha",
         "text": "Wow",
         "date": "2017-01-19"
     },
     {
         "postId": 1,
-        "author": "Sasha",
+        "user": "Sasha",
         "text": "Great",
         "date": "2017-03-09"
     },
     {
         "postId": 1,
-        "author": "Sasha",
+        "user": "Sasha",
         "text": "Stunning",
         "date": "2017-02-21"
     }

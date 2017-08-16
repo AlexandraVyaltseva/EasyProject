@@ -1,6 +1,7 @@
 <div layout="column" flex="50" flex-offset="25">
     <div>
-        <md-button type="button" ng-click="showPrompt($event)">Добавить пост</md-button>
+        <md-button type="button" ng-click="$ctrl.createPost()">Добавить пост</md-button>
+        <new-post ng-show="$ctrl.isShown"></new-post>
         <post ng-repeat="post in $ctrl.posts | orderBy:$ctrl.orderProp" post="post"></post>
     </div>
 </div>

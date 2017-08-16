@@ -1,16 +1,35 @@
-
+<form name="newpostForm">
     <md-card>
-        <img ng-src="{{$ctrl.imageUrl}}" class="md-card-image" alt="image caption">
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">{{$ctrl.title}}</span>
+                <md-input-container>
+                    <label>Название</label>
+                    <input class="md-headline" required name="title" ng-model="$ctrl.title">
+                    <div ng-messages="$ctrl.title.$error">
+                        <div ng-message="required">Введите название</div>
+                    </div>
+                </md-input-container>
             </md-card-title-text>
         </md-card-title>
-        <md-card-content>
-            <p>{{$ctrl.description}}</p>
+
+        <md-card-content layout="column">
+            <md-input-container>
+                <label>Описание</label>
+                <textarea rows="4" required name="" ng-model="$ctrl.description"></textarea>
+                <div ng-messages="$ctrl.description.$error">
+                    <div ng-message="required">Введите описание</div>
+                </div>
+            </md-input-container>
+
+            <md-button>
+                <label for="file-input">Выберете фото</label>
+            </md-button>
+            <input id="file-input" type="file" multiple style="display:none;" accept="image/*" required>
         </md-card-content>
+
         <md-card-actions layout="row" layout-align="end center">
-            <md-button>Action 1</md-button>
-            <md-button>Action 2</md-button>
-          </md-card-actions>
+            <md-button type="submit" class="submit" ng-disabled="newpostForm.$invalid">Опубликовать</md-button>
+            <!-- <md-button>Отмена</md-button> -->
+        </md-card-actions>
     </md-card>
+</form>

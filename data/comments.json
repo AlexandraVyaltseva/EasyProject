@@ -2,17 +2,17 @@
         "postId": 1,
         "comments": [{
 
-                "author": "Sasha",
+                "user": "Sasha",
                 "text": "Wow",
                 "date": "2017-01-19"
             },
             {
-                "author": "Sasha",
+                "user": "Sasha",
                 "text": "Great",
                 "date": "2017-03-09"
             },
             {
-                "author": "Sasha",
+                "user": "Sasha",
                 "text": "Stunning",
                 "date": "2017-02-21"
             }
@@ -22,17 +22,17 @@
         "postId": 2,
         "comments": [{
 
-                "author": "Sasha",
+                "user": "Sasha",
                 "text": "Wow",
                 "date": "2017-01-19"
             },
             {
-                "author": "Sasha",
+                "user": "Sasha",
                 "text": "Great",
                 "date": "2017-03-09"
             },
             {
-                "author": "Sasha",
+                "user": "Sasha",
                 "text": "Stunning",
                 "date": "2017-02-21"
             }
@@ -42,17 +42,17 @@
         "postId": 3,
         "comments": [{
 
-                "author": "Мария",
+                "user": "Мария",
                 "text": "Бьютифул",
                 "date": "2017-01-19"
             },
             {
-                "author": "Григорий",
+                "user": "Григорий",
                 "text": "Волшебный пейзаж!",
                 "date": "2017-05-09"
             },
             {
-                "author": "Александра",
+                "user": "Александра",
                 "text": "Завораживающй вид.",
                 "date": "2017-07-21"
             }

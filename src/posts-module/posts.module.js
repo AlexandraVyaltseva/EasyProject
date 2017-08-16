@@ -13,6 +13,8 @@ import comment from './components/comment/comment.component'
 import nav from './components/nav-bar/nav-bar.component'
 import signinForm from './components/sign-in-form/sign-in-form.component'
 import signupForm from './components/sign-up-form/sign-up-form.component'
+import newpostForm from './components/new-post/new-post.component'
+import newcommentForm from './components/new-comment/new-comment.component'
 
 import postService from './services/post-data.service';
 import commentService from './services/comment-data.service';
@@ -27,6 +29,8 @@ angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource'])
     .component('navBar', nav)
     .component('signinForm', signinForm)
     .component('signupForm', signupForm)
+    .component('newPost', newpostForm)
+    .component('newComment', newcommentForm)
     .config(['$stateProvider', '$urlRouterProvider',
         function config($stateProvider, $urlRouterProvider) {
             $stateProvider
