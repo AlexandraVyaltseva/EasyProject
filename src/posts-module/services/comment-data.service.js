@@ -3,7 +3,7 @@ export default class Service {
         this.urlBase = 'data/';
         this.jsonFormat = '.json';
         this.$http = $http;
-        this.$q = $q
+        this.$q = $q;
     }
 
     getAllComments() {
@@ -12,5 +12,11 @@ export default class Service {
 
     getComments(postId) {
         return this.$http.get(this.urlBase + 'comments' + postId + this.jsonFormat);
+    }
+
+    addCommentToBD(comment) {
+        // return this.$http.post("", comment);
+        console.log(comment);
+
     }
 }

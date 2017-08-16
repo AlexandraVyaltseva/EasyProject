@@ -6,9 +6,11 @@ export default class Controller {
         });
         this.orderProp = '-uploadDate';
         this.isShown = false;
+        this.buttonText = "Добавить пост";
     }
     createPost() {
         this.isShown = !this.isShown;
+        this.isShown ? this.buttonText = "Отмена" : this.buttonText = "Добавить пост";
     }
 
 

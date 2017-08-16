@@ -1,15 +1,3 @@
-// export default class Service {
-//     constructor($resource) {
-//         return $resource('data/:postId.json', {}, {
-//             query: {
-//                 method: 'GET',
-//                 params: { postId: 'posts' },
-//                 isArray: true
-//             }
-//         });
-//     }
-// }
-
 export default class Service {
     constructor($http, $q) {
         this.urlBase = 'data/';

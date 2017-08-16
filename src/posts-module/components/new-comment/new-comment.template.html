@@ -1,13 +1,13 @@
-<form name="newcommentForm">
+<form name="newcommentForm" ng-submit="$ctrl.addComment()">
     <div layout="column">
         <md-input-container flex>
-            <label>{{$ctrl.user}}, Ваш комментарий</label>
-            <textarea required name="text" ng-focus="$ctrl.createComment()" ng-model="$ctrl.text"></textarea>
+            <label> Ваш комментарий</label>
+            <textarea required name="text" ng-focus="$ctrl.createComment()" ng-model="$ctrl.formModel.text"></textarea>
         </md-input-container>
     </div>
 
     <div ng-if="$ctrl.isShown" layout="row" layout-align="end center">
-        <md-button ng-submit="$ctrl.addComment()" type="submit" ng-disabled="newcommentForm.$invalid">Отправить</md-button>
+        <md-button type="submit" ng-disabled="newcommentForm.$invalid">Отправить</md-button>
         <md-button ng-click="$ctrl.cancelForm()">Отмена</md-button>
     </div>
 </form>

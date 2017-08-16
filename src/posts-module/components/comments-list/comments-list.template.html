@@ -1,3 +1,4 @@
 <md-list flex>
     <comment ng-repeat="comment in $ctrl.comments | orderBy:comment.date" comment="comment"></comment>
+    <new-comment id='$ctrl.id' comments='$ctrl.comments'></new-comment>
 </md-list>

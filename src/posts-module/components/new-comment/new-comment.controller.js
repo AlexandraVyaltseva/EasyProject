@@ -1,8 +1,10 @@
 export default class {
-    constructor() {
-        this.text = "";
+    constructor(commentService, $filter) {
+        this.$filter = $filter;
+        this.commentService = commentService;
+
+        this.formModel = {};
         this.isShown = false;
-        this.user = "Пользователь";
     }
 
     createComment() {
@@ -14,15 +16,19 @@ export default class {
         this.isShown = false;
     }
 
+    addComment() {
+        this.formModel.date = this.$filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
+        this.formModel.postID = this.postID;
+        this.formModel.user = "User";
+        console.log(this.formModel);
+        this.commentService.addCommentToBD(this.formModel);
+        this.comments.push(this.formModel);
+        this.formModel = {};
+    }
 
-
-    // $onInit() {
-    //     this.title = this.post.title;
-    //     this.id = this.post.id;
-    //     this.imageUrl = this.post.imageUrl;
-    //     this.description = this.post.description;
-    //     this.uploadDate = this.post.uploadDate;
-    //     this.likes = this.post.likes;
-    //     this.commentsCnt = this.post.commentsCnt;
-    // }
+    $onInit() {
+        this.postID = this.id;
+        this.comments = this.comments;
+        console.log(this.comments);
+    }
 }

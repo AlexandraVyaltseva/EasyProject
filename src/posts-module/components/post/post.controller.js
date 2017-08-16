@@ -19,12 +19,10 @@ export default class {
     showComments() {
         if (this.isShown === false && this.comments == null) {
             this.commentService.getComments(this.id).then(response => {
-                console.log(response.data);
                 this.comments = response.data;
-                if (this.comments.length != 0) {
-                    this.buttonText = 'Скрыть комментарии';
-                    this.isShown = true;
-                }
+                this.buttonText = 'Скрыть комментарии';
+                this.isShown = true;
+
             });
         } else {
             if (this.isShown === false) {

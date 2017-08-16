@@ -14,17 +14,17 @@
     </md-card-title>
     <md-card-content>
         <p>{{$ctrl.description}}</p>
+        <!-- <p>{{$ctrl.id}}</p> -->
 
         <div layout="row" layout-align="end center">
             <span style="font-size:small; margin: 5px;">Пользователь {{$ctrl.user}}</span>
-            <span style="font-size:small; margin: 5px;">{{$ctrl.uploadDate}}</span>
+            <span style="font-size:small; margin: 5px;">{{$ctrl.uploadDate| date:'dd.MM.yyyy'}}</span>
             <span style="font-size:small; margin: 5px;">{{$ctrl.likes}}</span>
         </div>
 
-        <new-comment></new-comment>
 
-        <md-button flex type="button" ng-click="$ctrl.showComments()" ng-disabled="$ctrl.commentsCnt===0"> {{$ctrl.buttonText}} ({{$ctrl.commentsCnt}})</md-button>
-        <comments-list ng-if="$ctrl.isShown" comments='$ctrl.comments'></comments-list>
+        <md-button flex type="button" ng-click="$ctrl.showComments()"> {{$ctrl.buttonText}} ({{$ctrl.commentsCnt}})</md-button>
+        <comments-list ng-if="$ctrl.isShown" id='$ctrl.id' comments='$ctrl.comments'></comments-list>
 
 
     </md-card-content>
