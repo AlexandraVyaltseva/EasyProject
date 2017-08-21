@@ -13,7 +13,7 @@ export default class {
         this.description = this.post.description;
         this.uploadDate = this.post.uploadDate;
         this.likes = this.post.likes;
-        this.commentsCnt = this.post.commentsCnt;
+        //this.commentsCnt = this.post.commentsCnt;
     }
 
     showComments() {

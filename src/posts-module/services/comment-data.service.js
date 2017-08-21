@@ -1,22 +1,18 @@
 export default class Service {
     constructor($http, $q) {
-        this.urlBase = 'data/';
-        this.jsonFormat = '.json';
+        // this.urlBase = 'data/';
+        // this.jsonFormat = '.json';
+        this.urlBase = 'http://localhost:3000/';
         this.$http = $http;
         this.$q = $q;
     }
 
-    getAllComments() {
-        return this.$http.get(this.urlBase + 'comments1' + this.jsonFormat);
-    }
-
     getComments(postId) {
-        return this.$http.get(this.urlBase + 'comments' + postId + this.jsonFormat);
+        return this.$http.get(this.urlBase + 'getCommentsByPhotoId/' + postId);
     }
 
     addCommentToBD(comment) {
-        // return this.$http.post("", comment);
-        console.log(comment);
-
+        return this.$http.post(this.urlBase + 'addComment', comment);
+        //console.log(comment);
     }
 }

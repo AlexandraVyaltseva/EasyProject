@@ -17,13 +17,18 @@ export default class {
     }
 
     addComment() {
-        this.formModel.date = this.$filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
+        this.formModel.date = this.$filter('date')(new Date(), 'yyyy-MM-ddTHH:mm:ss');
         this.formModel.postID = this.postID;
-        this.formModel.user = "User";
+        this.formModel.userID = 3;
+        this.formModel.user = "Александра";
         console.log(this.formModel);
-        this.commentService.addCommentToBD(this.formModel);
-        this.comments.push(this.formModel);
-        this.formModel = {};
+        this.commentService.addCommentToBD(this.formModel).then(response => {
+            console.log(response.data);
+            this.formModel.id = response.data;
+            this.comments.push(this.formModel);
+            this.formModel = {};
+        });
+
     }
 
     $onInit() {
