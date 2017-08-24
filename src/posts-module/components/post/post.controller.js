@@ -12,7 +12,6 @@ export default class {
         this.imageUrl = this.post.imageUrl;
         this.description = this.post.description;
         this.uploadDate = this.post.uploadDate;
-        this.likes = this.post.likes;
         //this.commentsCnt = this.post.commentsCnt;
     }
 

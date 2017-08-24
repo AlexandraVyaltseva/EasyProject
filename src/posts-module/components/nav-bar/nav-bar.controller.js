@@ -1,12 +1,16 @@
 export default class {
-    constructor() {
-        this.menuItems = [
-            { link: 'posts', name: 'Все фото' },
-            { link: 'myposts', name: 'Мои фото' }
-        ];
-        this.listMenuItems = [
-            { link: 'signin', name: 'Вход' },
-            { link: 'signup', name: 'Регистрация' }
-        ]
+    constructor(userService, $state) {
+        this.userService = userService;
+        this.$state = $state;
     }
+
+    logout() {
+        this.userService.logoutUser().then(response => {
+            console.log(response.data);
+            // this.userService.currentUser = response.data;
+            // this.userService.isAuth = false;
+            // this.$state.reload();
+        });
+    }
+
 }

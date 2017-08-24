@@ -15,9 +15,11 @@ import signinForm from './components/sign-in-form/sign-in-form.component'
 import signupForm from './components/sign-up-form/sign-up-form.component'
 import newpostForm from './components/new-post/new-post.component'
 import newcommentForm from './components/new-comment/new-comment.component'
+import editableComment from './components/editable-comment/editable-comment.component'
 
 import postService from './services/post-data.service';
 import commentService from './services/comment-data.service';
+import userService from './services/user-data.service';
 
 
 angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource'])
@@ -31,6 +33,7 @@ angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource'])
     .component('signupForm', signupForm)
     .component('newPost', newpostForm)
     .component('newComment', newcommentForm)
+    .component('editableComment', editableComment)
     .config(['$stateProvider', '$urlRouterProvider',
         function config($stateProvider, $urlRouterProvider) {
             $stateProvider
@@ -44,7 +47,8 @@ angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource'])
                 })
                 .state('signin', {
                     url: "/signin",
-                    template: '<signin-form></signin-form>'
+                    template: '<signin-form></signin-form>',
+                    authenticate: true
                 })
                 .state('signup', {
                     url: "/signup",
@@ -55,4 +59,5 @@ angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource'])
         }
     ])
     .service('postService', postService)
-    .service('commentService', commentService);
+    .service('commentService', commentService)
+    .service('userService', userService);

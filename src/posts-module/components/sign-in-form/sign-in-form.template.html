@@ -1,18 +1,18 @@
-<md-content>
-    <form flex="60" flex-offset="20" name="signinForm">
+<md-content ng-if="!$ctrl.userService.isAuth">
+    <form flex="60" flex-offset="20" name="signinForm" ng-submit="$ctrl.loginUser()">
         <div layout="column">
             <md-input-container>
                 <label>Логин</label>
-                <input required name="login" ng-model="$ctrl.login">
-                <div ng-messages="$ctrl.login.$error">
+                <input required name="login" ng-model="$ctrl.formModel.login">
+                <div ng-messages="$ctrl.formModel.login.$error">
                     <div ng-message="required">Введите логин</div>
                 </div>
             </md-input-container>
 
             <md-input-container>
                 <label>Пароль</label>
-                <input required name="password" ng-model="$ctrl.password">
-                <div ng-messages="$ctrl.password.$error">
+                <input required name="password" ng-model="$ctrl.formModel.password">
+                <div ng-messages="$ctrl.formModel.password.$error">
                     <div ng-message="required">Введите пароль</div>
                 </div>
             </md-input-container>
@@ -21,4 +21,5 @@
             <md-button flex-offset="50" type="submit" class="submit" ng-disabled="signinForm.$invalid">Войти</md-button>
         </div>
     </form>
+    <div>{{$ctrl.message}}</div>
 </md-content>

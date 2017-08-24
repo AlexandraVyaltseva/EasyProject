@@ -1,0 +1,12 @@
+<form name="editcommentForm" ng-submit="$ctrl.editComment()">
+    <div layout="column">
+        <md-input-container flex>
+            <label> Ваш комментарий</label>
+            <textarea required name="text" ng-model="$ctrl.formModel.text"></textarea>
+        </md-input-container>
+    </div>
+    <div layout="row" layout-align="end center">
+        <md-button type="submit" ng-disabled="editcommentForm.$invalid || ($ctrl.formModel.text==$ctrl.comment.text)">Сохранить</md-button>
+        <md-button ng-click="$ctrl.cancelForm()">Отмена</md-button>
+    </div>
+</form>

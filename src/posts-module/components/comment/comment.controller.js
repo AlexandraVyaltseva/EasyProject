@@ -1,8 +1,29 @@
 export default class {
-    $onInit() {
-        this.user = this.comment.user;
-        this.date = this.comment.date;
-        this.text = this.comment.text;
-        this.id = this.comment.id;
+    constructor(userService, commentService) {
+        this.userService = userService;
+        this.commentService = commentService;
+        this.isEdit = false;
     }
+    $onInit() {
+        this.comment = this.comment;
+    }
+    delete() {
+        this.onDelete({ comment: this.comment });
+    }
+
+    changeComment(comment) {
+        this.commentService.changeComment(comment).then(() => {
+            console.log("Edited comment!");
+            this.isEdit = false;
+        })
+    }
+
+    cancelEdit() {
+        this.isEdit = false;
+    }
+
+    editMode() {
+        this.isEdit = true;
+    }
+
 }

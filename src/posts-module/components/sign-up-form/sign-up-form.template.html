@@ -1,34 +1,34 @@
 <md-content>
-    <form flex="60" flex-offset="20" name="signupForm">
+    <form flex="60" flex-offset="20" name="signupForm" ng-submit="$ctrl.registerUser()">
         <div layout="column">
             <md-input-container>
                 <label>Имя</label>
-                <input required name="name" ng-model="$ctrl.name">
-                <div ng-messages="$ctrl.name.$error">
+                <input required name="name" ng-model="$ctrl.formModel.name">
+                <div ng-messages="$ctrl.formModel.name.$error">
                     <div ng-message="required">Введите имя</div>
                 </div>
             </md-input-container>
 
-            <md-input-container>
+            <!-- <md-input-container>
                 <label>Фамилия</label>
-                <input required name="login" ng-model="$ctrl.login">
-                <div ng-messages="$ctrl.login.$error">
+                <input required name="login" ng-model="$ctrl.formModel.lastname">
+                <div ng-messages="$ctrl.formModel.lastname.$error">
                     <div ng-message="required">Введите фамилию</div>
                 </div>
-            </md-input-container>
+            </md-input-container> -->
 
             <md-input-container>
                 <label>Логин</label>
-                <input required name="login" ng-model="$ctrl.login">
-                <div ng-messages="$ctrl.login.$error">
+                <input required name="login" ng-model="$ctrl.formModel.login">
+                <div ng-messages="$ctrl.formModel.login.$error">
                     <div ng-message="required">Введите логин</div>
                 </div>
             </md-input-container>
 
             <md-input-container>
                 <label>Пароль</label>
-                <input required name="password" ng-model="$ctrl.password">
-                <div ng-messages="$ctrl.password.$error">
+                <input required name="password" ng-model="$ctrl.formModel.password">
+                <div ng-messages="$ctrl.formModel.password.$error">
                     <div ng-message="required">Введите пароль</div>
                 </div>
             </md-input-container>
