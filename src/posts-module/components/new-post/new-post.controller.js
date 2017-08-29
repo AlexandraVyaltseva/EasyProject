@@ -1,11 +1,20 @@
 export default class {
-    constructor() {
-        this.title = "";
-        this.id = "";
-        this.imageUrl = "";
-        this.description = "";
-        this.uploadDate = "";
-        this.likes = 100;
-        this.commentsCnt = 0;
+    constructor($http, postService) {
+        this.postService = postService;
+        this.$http = $http;
+        this.formModel = {};
+    }
+
+    addPost() {
+
+        console.log(this.formModel);
+
+
+        this.postService.addPost(this.picFile, this.formModel).then(res => {
+            console.log(res.data);
+            this.formModel = {};
+            //this.picFile = '';
+            this.onAdd({ post: res.data });
+        }, (res) => { console.log(res.status) });
     }
 }

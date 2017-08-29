@@ -5,6 +5,7 @@ export default {
     template,
     controller,
     bindings: {
-        post: '='
+        post: '=',
+        onDelete: '&'
     }
 }

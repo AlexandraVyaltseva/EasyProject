@@ -1,5 +1,5 @@
 <div layout="column" layout-align="center">
-    <div layout-padding>
+    <div>
         <md-input-container>
             <label>Сортировать:</label>
             <md-select ng-model="$ctrl.orderProp">
@@ -8,8 +8,8 @@
                 <md-option value="-uploadDate">По дате</md-option>
             </md-select>
         </md-input-container>
-        <div flex="50" flex-offset="25">
-        <post ng-repeat="post in $ctrl.posts | orderBy:$ctrl.orderProp" post="post"></post>
-        </div>
+        <div flex="60" flex-offset="20">
+            <post on-delete="$ctrl.deletePost()" ng-repeat="post in $ctrl.posts | orderBy:$ctrl.orderProp" post="post"></post>
         </div>
     </div>
+</div>

@@ -8,15 +8,6 @@
                     <div ng-message="required">Введите имя</div>
                 </div>
             </md-input-container>
-
-            <!-- <md-input-container>
-                <label>Фамилия</label>
-                <input required name="login" ng-model="$ctrl.formModel.lastname">
-                <div ng-messages="$ctrl.formModel.lastname.$error">
-                    <div ng-message="required">Введите фамилию</div>
-                </div>
-            </md-input-container> -->
-
             <md-input-container>
                 <label>Логин</label>
                 <input required name="login" ng-model="$ctrl.formModel.login">
@@ -27,7 +18,7 @@
 
             <md-input-container>
                 <label>Пароль</label>
-                <input required name="password" ng-model="$ctrl.formModel.password">
+                <input type="password" required name="password" ng-model="$ctrl.formModel.password">
                 <div ng-messages="$ctrl.formModel.password.$error">
                     <div ng-message="required">Введите пароль</div>
                 </div>

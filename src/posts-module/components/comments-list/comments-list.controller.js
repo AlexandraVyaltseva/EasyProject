@@ -1,6 +1,7 @@
 export default class Controller {
-    constructor(commentService) {
+    constructor(commentService, userService) {
         this.commentService = commentService;
+        this.userService = userService;
     }
     $onInit() {
         this.comments = this.comments;

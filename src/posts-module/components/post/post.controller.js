@@ -1,18 +1,54 @@
 export default class {
-    constructor(commentService) {
+    constructor(commentService, postService, userService, $mdDialog) {
         this.commentService = commentService;
+        this.postService = postService;
+        this.userService = userService;
+        this.$mdDialog = $mdDialog;
+
         this.buttonText = 'Показать комментарии';
         this.isShown = false;
+        this.isEdit = false;
     }
 
     $onInit() {
-        this.user = this.post.user;
-        this.title = this.post.title;
+        this.post = this.post;
         this.id = this.post.id;
-        this.imageUrl = this.post.imageUrl;
-        this.description = this.post.description;
-        this.uploadDate = this.post.uploadDate;
-        //this.commentsCnt = this.post.commentsCnt;
+    }
+
+    showConfirm(ev) {
+        let confirm = this.$mdDialog.confirm()
+            .title('Вы действительно хотите удалить этот пост?')
+            .ariaLabel('Lucky day')
+            .targetEvent(event)
+            .ok('Да')
+            .cancel('Отмена');
+
+        this.$mdDialog.show(confirm).then(() => {
+            this.status = 'Вы решили удалить пост.';
+            console.log(this.status);
+
+            this.postService.deletePost(this.post.id).then(() => {
+                this.onDelete(this.post);
+            })
+        }, () => {
+            this.status = 'Вы решили сохранить пост.';
+            console.log(this.status);
+        });
+    }
+
+    cancelEdit() {
+        this.isEdit = false;
+    }
+
+    editMode() {
+        this.isEdit = true;
+    }
+
+    changePost(post) {
+        this.postService.changePost(post).then(() => {
+            console.log("Edit post!");
+            this.isEdit = false;
+        });
     }
 
     showComments() {

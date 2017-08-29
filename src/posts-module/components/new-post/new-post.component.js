@@ -3,5 +3,8 @@ import controller from './new-post.controller';
 
 export default {
     template,
-    controller
+    controller,
+    bindings: {
+        onAdd: '&'
+    }
 }

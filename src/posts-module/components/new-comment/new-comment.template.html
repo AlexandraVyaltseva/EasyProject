@@ -2,7 +2,7 @@
     <div layout="column">
         <md-input-container flex>
             <label> Ваш комментарий</label>
-            <textarea required name="text" ng-focus="$ctrl.createComment()" ng-model="$ctrl.formModel.text"></textarea>
+            <input type="text" required name="text" ng-focus="$ctrl.createComment()" ng-model="$ctrl.formModel.text"></input>
         </md-input-container>
     </div>
 
@@ -10,4 +10,5 @@
         <md-button type="submit" ng-disabled="newcommentForm.$invalid">Отправить</md-button>
         <md-button ng-click="$ctrl.cancelForm()">Отмена</md-button>
     </div>
+
 </form>

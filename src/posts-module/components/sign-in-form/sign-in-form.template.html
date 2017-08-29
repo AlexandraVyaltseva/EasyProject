@@ -11,7 +11,7 @@
 
             <md-input-container>
                 <label>Пароль</label>
-                <input required name="password" ng-model="$ctrl.formModel.password">
+                <input type="password" required name="password" ng-model="$ctrl.formModel.password">
                 <div ng-messages="$ctrl.formModel.password.$error">
                     <div ng-message="required">Введите пароль</div>
                 </div>

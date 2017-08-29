@@ -1,17 +1,28 @@
-<md-list-item class="md-3-line" ng-if="$ctrl.isEdit==false">
+<md-list-item class="md-3-line" layout="row" ng-if="$ctrl.isEdit==false">
     <div class="md-list-item-text" layout="column">
         <h3> {{$ctrl.comment.user}} </h3>
         <h4>{{$ctrl.comment.text}}</h4>
-        <p> {{$ctrl.comment.date| date:'dd.MM.yyyy HH:mm'}} </p>
+        <p ng-if="$ctrl.comment.edited==null"> {{$ctrl.comment.date| date:'dd.MM.yyyy HH:mm'}} </p>
+        <p ng-if="$ctrl.comment.edited!=null"> Изменен {{$ctrl.comment.edited| date:'dd.MM.yyyy HH:mm'}} </p>
     </div>
-    <div layout="row" layout-align="end center">
-        <md-button ng-click="$ctrl.editMode()" ng-if="$ctrl.comment.author_id === $ctrl.userService.currentUser.id" class="md-icon-button" aria-label="Edit">
-            <md-icon style="height: 16px; width: 16px; min-height: 16px; min-width: 16px;" md-svg-icon="data/icons/ic_create_black_18px.svg"></md-icon>
-        </md-button>
-        <md-button ng-click="$ctrl.delete()" class="md-icon-button" aria-label="Remove">
-            <md-icon style="height: 16px; width: 16px; min-height: 16px; min-width: 16px;" md-svg-icon="data/icons/ic_clear_black_18px.svg"></md-icon>
-        </md-button>
+
+    <div ng-if="$ctrl.comment.author_id === $ctrl.userService.currentUser.id">
+        <md-menu md-position-mode="target-right target">
+            <md-button class="md-icon-button" ng-click="$mdMenu.open()">
+                <md-icon style="height: 16px; width: 16px; min-height: 16px; min-width: 16px;" md-svg-icon="data/icons/ic_more_vert_black_18px.svg"></md-icon>
+            </md-button>
+            <md-menu-content>
+                <md-menu-item>
+                    <md-button ng-click="$ctrl.editMode()" aria-label="Edit">Изменить</md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-click="$ctrl.delete()" aria-label="Remove">Удалить</md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
     </div>
 </md-list-item>
 
-<editable-comment comment="$ctrl.comment" on-edit="$ctrl.changeComment(comment)" on-cancel="$ctrl.cancelEdit()" on-change="$ctrl.changeComment(comment)" ng-if="$ctrl.isEdit==true"></editable-comment>
+<md-list-item ng-if="$ctrl.isEdit==true">
+    <editable-comment flex comment="$ctrl.comment" on-edit="$ctrl.changeComment(comment)" on-cancel="$ctrl.cancelEdit()" on-change="$ctrl.changeComment(comment)"></editable-comment>
+</md-list-item>

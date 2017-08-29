@@ -1,0 +1,16 @@
+<form name="editpostForm" ng-submit="$ctrl.editPost()">
+    <md-card-content>
+        <div layout="row" layout-align="end center">
+            <md-button type="submit" ng-disabled="editpostForm.$invalid">Сохранить</md-button>
+            <md-button ng-click="$ctrl.cancelForm()">Отмена</md-button>
+        </div>
+        <md-input-container class="md-block">
+            <label>Заголовок</label>
+            <input type="text" required ng-model="$ctrl.formModel.title" class="md-headline"></input>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Описание</label>
+            <textarea rows="3" type="text" required ng-model="$ctrl.formModel.description"></textarea>
+        </md-input-container>
+    </md-card-content>
+</form>

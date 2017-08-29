@@ -4,6 +4,7 @@ import 'angular-material/angular-material.min.css'
 import 'angular-resource'
 import 'angular-ui-router'
 import 'angular-material-icons'
+import 'ng-file-upload'
 
 import postsList from './components/posts-list/posts-list.component'
 import mypostsList from './components/my-posts-list/my-posts-list.component'
@@ -16,13 +17,14 @@ import signupForm from './components/sign-up-form/sign-up-form.component'
 import newpostForm from './components/new-post/new-post.component'
 import newcommentForm from './components/new-comment/new-comment.component'
 import editableComment from './components/editable-comment/editable-comment.component'
+import editablePost from './components/editable-post/editable-post.component'
 
 import postService from './services/post-data.service';
 import commentService from './services/comment-data.service';
 import userService from './services/user-data.service';
 
 
-angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource'])
+angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource', 'ngFileUpload'])
     .component('postsList', postsList)
     .component('mypostsList', mypostsList)
     .component('post', post)
@@ -34,6 +36,7 @@ angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource'])
     .component('newPost', newpostForm)
     .component('newComment', newcommentForm)
     .component('editableComment', editableComment)
+    .component('editablePost', editablePost)
     .config(['$stateProvider', '$urlRouterProvider',
         function config($stateProvider, $urlRouterProvider) {
             $stateProvider

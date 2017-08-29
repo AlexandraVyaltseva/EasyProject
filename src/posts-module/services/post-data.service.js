@@ -1,8 +1,9 @@
 export default class Service {
-    constructor($http, $q) {
+    constructor($http, $q, Upload) {
         this.urlBase = 'http://localhost:3000/';
         this.$http = $http;
         this.$q = $q;
+        this.Upload = Upload;
     }
 
     getPosts() {
@@ -17,11 +18,30 @@ export default class Service {
         });
     }
 
-    // getPost(postId) {
-    //     return this.$http.get(this.urlBase + 'posts' + this.jsonFormat);
-    // }
+    changePost(post) {
+        return this.$http.post(this.urlBase + 'changePhoto', post, {
+            withCredentials: true
+        });
+    }
 
-    addPost() {}
 
-    deletePost(postId) {}
+    addPost(file, data) {
+        return this.Upload.upload({
+            url: 'http://localhost:3000/addPhoto',
+            data: data,
+            withCredentials: true,
+            file: file
+        });
+    }
+
+    deletePost(postId) {
+        console.log(postId);
+        let id = {
+            'photoId': postId
+        }
+        console.log(id);
+        return this.$http.post(this.urlBase + 'deletePhotoById', id, {
+            withCredentials: true
+        });
+    }
 }

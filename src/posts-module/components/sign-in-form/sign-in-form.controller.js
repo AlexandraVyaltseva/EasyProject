@@ -10,6 +10,8 @@ export default class Controller {
             console.log(response.data);
             this.formModel = {};
             if (response.data != false) {
+                this.userService.currentUser = response.data;
+                console.log(this.userService.currentUser);
                 this.userService.isAuth = true;
                 this.$state.go('myposts');
             } else {

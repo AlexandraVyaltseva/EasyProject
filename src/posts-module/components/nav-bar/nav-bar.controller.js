@@ -7,9 +7,11 @@ export default class {
     logout() {
         this.userService.logoutUser().then(response => {
             console.log(response.data);
-            // this.userService.currentUser = response.data;
-            // this.userService.isAuth = false;
-            // this.$state.reload();
+            this.userService.currentUser = response.data;
+            this.userService.isAuth = false;
+
+            this.$state.go('posts');
+            //this.$state.reload();
         });
     }
 

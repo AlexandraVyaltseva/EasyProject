@@ -1,4 +1,6 @@
 <md-list flex>
     <comment ng-repeat="comment in $ctrl.comments | orderBy:comment.date" comment="comment" on-delete="$ctrl.deleteComment(comment)"></comment>
-    <new-comment id='$ctrl.id' comments='$ctrl.comments'></new-comment>
+    <md-list-item>
+        <new-comment ng-if="$ctrl.userService.isAuth" id='$ctrl.id' comments='$ctrl.comments' flex></new-comment>
+    </md-list-item>
 </md-list>

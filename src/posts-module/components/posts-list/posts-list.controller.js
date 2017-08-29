@@ -6,4 +6,11 @@ export default class Controller {
         });
         this.orderProp = '';
     }
+
+    deletePost(post) {
+        let index = this.posts.indexOf(post);
+        if (index >= 0) {
+            this.posts.splice(index, 1);
+        }
+    }
 }

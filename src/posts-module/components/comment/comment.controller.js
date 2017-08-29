@@ -13,9 +13,9 @@ export default class {
 
     changeComment(comment) {
         this.commentService.changeComment(comment).then(() => {
-            console.log("Edited comment!");
+            console.log("Edit comment!");
             this.isEdit = false;
-        })
+        });
     }
 
     cancelEdit() {

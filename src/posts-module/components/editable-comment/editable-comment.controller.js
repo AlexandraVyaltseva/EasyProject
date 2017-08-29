@@ -5,11 +5,12 @@ export default class {
         this.userService = userService;
 
         this.formModel = {};
-        this.isShown = false;
+        this.isEdit = false;
     }
 
-    createComment() {
-        this.isShown = true;
+    $onInit() {
+        this.comment = this.comment;
+        this.formModel.text = this.comment.text;
     }
 
     cancelForm() {
@@ -21,10 +22,4 @@ export default class {
         this.onEdit({ comment: this.comment });
     }
 
-    $onInit() {
-        this.comment = this.comment;
-        this.formModel.text = this.comment.text;
-
-
-    }
 }
