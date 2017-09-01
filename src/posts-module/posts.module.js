@@ -5,6 +5,9 @@ import 'angular-resource'
 import 'angular-ui-router'
 import 'angular-material-icons'
 import 'ng-file-upload'
+import 'angular-material-icons'
+
+import routing from './routing'
 
 import postsList from './components/posts-list/posts-list.component'
 import mypostsList from './components/my-posts-list/my-posts-list.component'
@@ -24,7 +27,7 @@ import commentService from './services/comment-data.service';
 import userService from './services/user-data.service';
 
 
-angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource', 'ngFileUpload'])
+angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource', 'ngFileUpload', 'ngMdIcons'])
     .component('postsList', postsList)
     .component('mypostsList', mypostsList)
     .component('post', post)
@@ -37,30 +40,7 @@ angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource', 'ngFileU
     .component('newComment', newcommentForm)
     .component('editableComment', editableComment)
     .component('editablePost', editablePost)
-    .config(['$stateProvider', '$urlRouterProvider',
-        function config($stateProvider, $urlRouterProvider) {
-            $stateProvider
-                .state('posts', {
-                    url: "/posts",
-                    template: '<posts-list></posts-list>'
-                })
-                .state('myposts', {
-                    url: "/myposts",
-                    template: '<myposts-list></myposts-list>'
-                })
-                .state('signin', {
-                    url: "/signin",
-                    template: '<signin-form></signin-form>',
-                    authenticate: true
-                })
-                .state('signup', {
-                    url: "/signup",
-                    template: '<signup-form></signup-form>'
-                });
-
-            $urlRouterProvider.otherwise('/posts');
-        }
-    ])
+    .config(routing)
     .service('postService', postService)
     .service('commentService', commentService)
     .service('userService', userService);

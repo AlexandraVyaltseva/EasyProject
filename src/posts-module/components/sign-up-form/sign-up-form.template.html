@@ -1,4 +1,4 @@
-<md-content>
+<md-content ng-if="!$ctrl.userService.isAuth">
     <form flex="60" flex-offset="20" name="signupForm" ng-submit="$ctrl.registerUser()">
         <div layout="column">
             <md-input-container>
@@ -24,8 +24,8 @@
                 </div>
             </md-input-container>
         </div>
-        <div>
-            <md-button flex-offset="50" type="submit" class="submit" ng-disabled="signupForm.$invalid">Зарегистрироваться</md-button>
+        <div flex>
+            <md-button flex-offset="40" type="submit" class="submit" ng-disabled="signupForm.$invalid">Зарегистрироваться</md-button>
         </div>
     </form>
 </md-content>

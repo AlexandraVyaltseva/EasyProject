@@ -1,6 +1,6 @@
-<div layout="column" flex="50" flex-offset="25">
+<div ng-if="$ctrl.userService.isAuth == true" layout="column" flex="50" flex-offset="25">
     <div>
-        <md-button type="button" ng-click="$ctrl.createPost()">{{$ctrl.buttonText}}</md-button>
+        <md-button class="md-raised" type="button" ng-click="$ctrl.createPost()">{{$ctrl.buttonText}}</md-button>
         <new-post on-add="$ctrl.addPost(post)" ng-if="$ctrl.isShown"></new-post>
         <post on-delete="$ctrl.deletePost(post)" ng-repeat="post in $ctrl.posts | orderBy:$ctrl.orderProp" post="post"></post>
     </div>

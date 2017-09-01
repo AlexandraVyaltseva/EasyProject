@@ -1,18 +1,18 @@
 <md-content class="md-padding">
     <md-nav-bar nav-bar-aria-label="navigation links">
-        <md-nav-item md-nav-sref="posts" name="posts"> Все фото </md-nav-item>
-        <md-nav-item ng-if="$ctrl.userService.isAuth === true" md-nav-sref="myposts" name="myposts"> Мои фото </md-nav-item>
-        <!-- <span flex></span> -->
-        <md-nav-item ng-if="$ctrl.userService.isAuth === false" md-nav-sref="signin" name="signin"> Вход </md-nav-item>
-        <md-nav-item ng-if="$ctrl.userService.isAuth === false" md-nav-sref="signup" name="signup"> Регистрация </md-nav-item>
+        <md-button ui-sref="posts" name="posts" value="posts"> Все фото </md-button>
+        <md-button ng-if="$ctrl.userService.isAuth === true" ui-sref="myposts" name="myposts" value="myposts"> Мои фото </md-button>
+        <span flex></span>
+        <md-button ng-if="$ctrl.userService.isAuth === false" ui-sref="signin" name="signin" value="signin"> Вход </md-button>
+        <md-button ng-if="$ctrl.userService.isAuth === false" ui-sref="signup" name="signup" value="signup"> Регистрация </md-button>
         <md-menu ng-if="$ctrl.userService.isAuth === true">
             <md-button ng-click="$mdOpenMenu()">
                 {{$ctrl.userService.currentUser.name}}
             </md-button>
             <md-menu-content>
-                <md-menu-item>
+                <!-- <md-menu-item>
                     <md-button>Профиль</md-button>
-                </md-menu-item>
+                </md-menu-item> -->
                 <md-menu-item>
                     <md-button ng-click="$ctrl.logout()">Выход</md-button>
                 </md-menu-item>

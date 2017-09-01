@@ -1,8 +1,10 @@
 export default class Controller {
-    constructor(userService, $state) {
+    constructor(userService, $state, $mdToast) {
         this.userService = userService;
+        this.$mdToast = $mdToast;
         this.$state = $state;
         this.formModel = {};
+
     }
 
     loginUser() {
@@ -15,8 +17,18 @@ export default class Controller {
                 this.userService.isAuth = true;
                 this.$state.go('myposts');
             } else {
-                this.message = response.data;
+                this.showCustomToast();
             }
+        });
+    }
+
+    showCustomToast() {
+        this.$mdToast.show({
+            hideDelay: 2000,
+            position: 'top right',
+            template: `<md-toast>
+          <span class="md-toast-text" flex>Неверный логин или пароль!</span>    
+        </md-toast>`
         });
     }
 

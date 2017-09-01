@@ -4,7 +4,7 @@ export default class Controller {
             console.log(response.data);
             this.posts = response.data;
         });
-        this.orderProp = '';
+        this.orderProp = "-uploadDate";
     }
 
     deletePost(post) {

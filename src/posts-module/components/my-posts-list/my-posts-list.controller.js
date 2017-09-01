@@ -1,5 +1,6 @@
 export default class Controller {
-    constructor(postService) {
+    constructor(postService, userService) {
+        this.userService = userService;
         postService.getUserPosts().then(response => {
             console.log(response.data);
             this.posts = response.data;
