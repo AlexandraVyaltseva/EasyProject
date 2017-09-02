@@ -1,10 +1,10 @@
-<md-content class="md-padding">
+<md-content flex-xs="100" flex-offset-xs="0">
     <md-nav-bar nav-bar-aria-label="navigation links">
-        <md-button ui-sref="posts" name="posts" value="posts"> Все фото </md-button>
-        <md-button ng-if="$ctrl.userService.isAuth === true" ui-sref="myposts" name="myposts" value="myposts"> Мои фото </md-button>
+        <md-button ui-sref="posts" ui-sref-active="md-primary" name="posts" value="posts"> Все фото </md-button>
+        <md-button ng-if="$ctrl.userService.isAuth === true" ui-sref="myposts" ui-sref-active="md-primary" name="myposts" value="myposts"> Мои фото </md-button>
         <span flex></span>
-        <md-button ng-if="$ctrl.userService.isAuth === false" ui-sref="signin" name="signin" value="signin"> Вход </md-button>
-        <md-button ng-if="$ctrl.userService.isAuth === false" ui-sref="signup" name="signup" value="signup"> Регистрация </md-button>
+        <md-button ng-if="$ctrl.userService.isAuth === false" ui-sref="signin" ui-sref-active="md-primary" name="signin" value="signin"> Вход </md-button>
+        <md-button ng-if="$ctrl.userService.isAuth === false" ui-sref="signup" ui-sref-active="md-primary" name="signup" value="signup"> Регистрация </md-button>
         <md-menu ng-if="$ctrl.userService.isAuth === true">
             <md-button ng-click="$mdOpenMenu()">
                 {{$ctrl.userService.currentUser.name}}

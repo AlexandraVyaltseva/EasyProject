@@ -8,6 +8,7 @@ import 'ng-file-upload'
 import 'angular-material-icons'
 
 import routing from './routing'
+import theme from './theme'
 
 import postsList from './components/posts-list/posts-list.component'
 import mypostsList from './components/my-posts-list/my-posts-list.component'
@@ -25,6 +26,7 @@ import editablePost from './components/editable-post/editable-post.component'
 import postService from './services/post-data.service';
 import commentService from './services/comment-data.service';
 import userService from './services/user-data.service';
+import httpService from './services/http.service'
 
 
 angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource', 'ngFileUpload', 'ngMdIcons'])
@@ -41,6 +43,8 @@ angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource', 'ngFileU
     .component('editableComment', editableComment)
     .component('editablePost', editablePost)
     .config(routing)
+    .config(theme)
     .service('postService', postService)
     .service('commentService', commentService)
-    .service('userService', userService);
+    .service('userService', userService)
+    .service('httpService', httpService);

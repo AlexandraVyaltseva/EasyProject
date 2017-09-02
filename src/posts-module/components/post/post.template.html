@@ -8,12 +8,12 @@
 
             <div ng-if="$ctrl.post.author_id === $ctrl.userService.currentUser.id" layout="row" layout-align="end center">
 
-                <md-button class="md-fab md-mini" style="background-color: rgb(255,82,82)" ng-click="$ctrl.editMode()" aria-label="Edit">
+                <md-button class="md-fab md-accent md-mini" ng-click="$ctrl.editMode()" aria-label="Edit">
                     <ng-md-icon icon="edit" style="fill: white" size="20"></ng-md-icon>
                     <!-- <md-icon style="height: 16px; width: 16px; min-height: 16px; min-width: 16px;" md-svg-icon="data/icons/ic_create_black_18px.svg"></md-icon> -->
                 </md-button>
 
-                <md-button class="md-fab md-primary md-mini" style="background-color:#673AB7" ng-click="$ctrl.showConfirm($event)" aria-label="Remove">
+                <md-button class="md-fab md-primary md-mini" ng-click="$ctrl.showConfirm($event)" aria-label="Remove">
                     <ng-md-icon icon="delete" style="fill: white" size="20"></ng-md-icon>
                     <!-- <md-icon style="height: 16px; width: 16px; min-height: 16px; min-width: 16px;" md-svg-icon="data/icons/ic_clear_black_18px.svg"></md-icon> -->
                 </md-button>
@@ -35,7 +35,7 @@
         </div>
     </md-card-content>
     <md-card-actions>
-        <md-button flex type="button" ng-click="$ctrl.showComments()"> {{$ctrl.buttonText}}</md-button>
+        <md-button flex type="button" class="md-primary" ng-click="$ctrl.showComments()"> {{$ctrl.buttonText}}</md-button>
     </md-card-actions>
     <comments-list ng-if="$ctrl.isShown" id='$ctrl.id' comments='$ctrl.comments'></comments-list>
 </md-card>

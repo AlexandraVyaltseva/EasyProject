@@ -1,27 +1,20 @@
 export default class Service {
-    constructor($http, $q, Upload) {
+    constructor($http, Upload, httpService) {
         this.urlBase = 'http://localhost:3000/';
-        this.$http = $http;
-        this.$q = $q;
+        this.httpService = httpService;
         this.Upload = Upload;
     }
 
     getPosts() {
-        return this.$http.get(this.urlBase + 'getAllPhotos', {
-            withCredentials: true
-        });
+        return this.httpService.request('GET', 'getAllPhotos', {});
     }
 
     getUserPosts() {
-        return this.$http.get(this.urlBase + 'getUserPhotos', {
-            withCredentials: true
-        });
+        return this.httpService.request('GET', 'getUserPhotos', {});
     }
 
     changePost(post) {
-        return this.$http.post(this.urlBase + 'changePhoto', post, {
-            withCredentials: true
-        });
+        return this.httpService.request('POST', 'changePhoto', post);
     }
 
 
@@ -39,9 +32,7 @@ export default class Service {
         let id = {
             'photoId': postId
         }
-        console.log(id);
-        return this.$http.post(this.urlBase + 'deletePhotoById', id, {
-            withCredentials: true
-        });
+
+        return this.httpService.request('POST', 'deletePhotoById', id);
     }
 }

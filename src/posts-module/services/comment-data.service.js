@@ -1,29 +1,22 @@
 export default class Service {
-    constructor($http, $q) {
+    constructor($http, httpService) {
         this.urlBase = 'http://localhost:3000/';
-        this.$http = $http;
-        this.$q = $q;
+        this.httpService = httpService;
     }
 
     getComments(postId) {
-        return this.$http.get(this.urlBase + 'getCommentsByPhotoId/' + postId);
+        return this.httpService.request('GET', 'getCommentsByPhotoId/' + postId, {});
     }
 
     addCommentToBD(comment) {
-        return this.$http.post(this.urlBase + 'addComment', comment, {
-            withCredentials: true
-        });
+        return this.httpService.request('POST', 'addComment', comment);
     }
 
     deleteCommentById(comment) {
-        return this.$http.post(this.urlBase + 'deleteCommentById', comment, {
-            withCredentials: true
-        });
+        return this.httpService.request('POST', 'deleteCommentById', comment);
     }
 
     changeComment(comment) {
-        return this.$http.post(this.urlBase + 'changeComment', comment, {
-            withCredentials: true
-        });
+        return this.httpService.request('POST', 'changeComment', comment);
     }
 }

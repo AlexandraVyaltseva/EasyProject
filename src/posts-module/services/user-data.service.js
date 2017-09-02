@@ -1,8 +1,7 @@
 export default class userService {
-    constructor($http, $q) {
+    constructor($http, httpService) {
         this.urlBase = 'http://localhost:3000/';
-        this.$http = $http;
-        this.$q = $q;
+        this.httpService = httpService;
         this.isAuth = null;
         this.getCurrentUser()
             .then(res => {
@@ -11,27 +10,24 @@ export default class userService {
             })
     }
 
+    setUser(user) {
+        this.isAuth = true;
+        this.currentUser = user;
+    }
+
     registerUser(user) {
-        return this.$http.post(this.urlBase + 'register', user, {
-            withCredentials: true
-        });
+        return this.httpService.request('POST', 'register', user);
     }
 
     loginUser(user) {
-        return this.$http.post(this.urlBase + 'login', user, {
-            withCredentials: true
-        });
+        return this.httpService.request('POST', 'login', user);
     }
 
     logoutUser() {
-        return this.$http.post(this.urlBase + 'logout', {}, {
-            withCredentials: true
-        });
+        return this.httpService.request('POST', 'logout', {});
     }
 
     getCurrentUser() {
-        return this.$http.get(this.urlBase + 'getCurrentUser', {
-            withCredentials: true
-        });
+        return this.httpService.request('GET', 'getCurrentUser', {});
     }
 }

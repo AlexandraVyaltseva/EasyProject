@@ -9,7 +9,7 @@ export default class Controller {
     }
 
     deleteComment(comment) {
-        console.log(comment.id);
+        //console.log(comment.id);
         this.commentService.deleteCommentById(comment).then(() => {
             let index = this.comments.indexOf(comment);
             if (index >= 0) {

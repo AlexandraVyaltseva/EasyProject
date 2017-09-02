@@ -9,12 +9,9 @@ export default class Controller {
 
     loginUser() {
         this.userService.loginUser(this.formModel).then(response => {
-            console.log(response.data);
             this.formModel = {};
             if (response.data != false) {
-                this.userService.currentUser = response.data;
-                console.log(this.userService.currentUser);
-                this.userService.isAuth = true;
+                this.userService.setUser(response.data);
                 this.$state.go('myposts');
             } else {
                 this.showCustomToast();
@@ -30,10 +27,6 @@ export default class Controller {
           <span class="md-toast-text" flex>Неверный логин или пароль!</span>    
         </md-toast>`
         });
-    }
-
-    getCurrentUser() {
-        console.log(this.userService.isAuth);
     }
 
 }

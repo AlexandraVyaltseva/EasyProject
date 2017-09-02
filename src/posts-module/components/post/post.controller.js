@@ -24,15 +24,15 @@ export default class {
             .cancel('Отмена');
 
         this.$mdDialog.show(confirm).then(() => {
-            this.status = 'Вы решили удалить пост.';
-            console.log(this.status);
+            // this.status = 'Вы решили удалить пост.';
+            // console.log(this.status);
 
             this.postService.deletePost(this.post.id).then(() => {
                 this.onDelete(this.post);
             })
         }, () => {
-            this.status = 'Вы решили сохранить пост.';
-            console.log(this.status);
+            // this.status = 'Вы решили сохранить пост.';
+            // console.log(this.status);
         });
     }
 
@@ -46,7 +46,7 @@ export default class {
 
     changePost(post) {
         this.postService.changePost(post).then(() => {
-            console.log("Edit post!");
+            //console.log("Edit post!");
             this.isEdit = false;
         });
     }

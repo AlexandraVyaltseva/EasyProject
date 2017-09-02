@@ -1,24 +1,20 @@
-<md-content ng-if="!$ctrl.userService.isAuth">
-    <form flex="60" flex-offset="20" name="signinForm" ng-submit="$ctrl.loginUser()">
-        <div layout="column">
-            <md-input-container>
-                <label>Логин</label>
-                <input required name="login" ng-model="$ctrl.formModel.login">
-                <div ng-messages="$ctrl.formModel.login.$error">
-                    <div ng-message="required">Введите логин</div>
-                </div>
-            </md-input-container>
+<form flex-xs="50" flex-offset-xs="25" flex-sm="50" flex-offset-sm="25" flex="30" flex-offset="35" ng-if="!$ctrl.userService.isAuth" name="signinForm" ng-submit="$ctrl.loginUser()">
+    <div layout="column">
+        <md-input-container>
+            <label>Логин</label>
+            <input required name="login" ng-model="$ctrl.formModel.login">
+            <div ng-messages="$ctrl.formModel.login.$error">
+                <div ng-message="required">Введите логин</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Пароль</label>
+            <input type="password" required name="password" ng-model="$ctrl.formModel.password">
+            <div ng-messages="$ctrl.formModel.password.$error">
+                <div ng-message="required">Введите пароль</div>
+            </div>
+        </md-input-container>
 
-            <md-input-container>
-                <label>Пароль</label>
-                <input type="password" required name="password" ng-model="$ctrl.formModel.password">
-                <div ng-messages="$ctrl.formModel.password.$error">
-                    <div ng-message="required">Введите пароль</div>
-                </div>
-            </md-input-container>
-        </div>
-        <div>
-            <md-button flex-offset="50" type="submit" class="submit" ng-disabled="signinForm.$invalid">Войти</md-button>
-        </div>
-    </form>
-</md-content>
+        <md-button type="submit" class="md-raised md-primary" ng-disabled="signinForm.$invalid">Войти</md-button>
+    </div>
+</form>

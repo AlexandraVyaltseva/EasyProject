@@ -1,14 +1,14 @@
 <div layout="column">
     <div>
-        <div flex="60" flex-offset="20">
+        <div flex-xs="100" flex-offset-xs="0" flex-sm="100" flex-offset-sm="0" flex="60" flex-offset="20">
             <div style="margin:10px;">
                 <md-radio-group layout="row" ng-model="$ctrl.orderProp">
-                    <md-radio-button class="md-warn" value="title">По алфавиту</md-radio-button>
+                    <md-radio-button class="md-primary" value="title">По алфавиту</md-radio-button>
                     <!-- <md-option value="-likes">По популярности</md-option> -->
-                    <md-radio-button class="md-warn" value="-uploadDate">По дате</md-radio-button>
+                    <md-radio-button class="md-primary" value="-uploadDate">По дате</md-radio-button>
                 </md-radio-group>
             </div>
-            <post on-delete="$ctrl.deletePost()" ng-repeat="post in $ctrl.posts | orderBy:$ctrl.orderProp" post="post"></post>
+            <post flex="50" on-delete="$ctrl.deletePost()" ng-repeat="post in $ctrl.posts | orderBy:$ctrl.orderProp" post="post"></post>
         </div>
     </div>
 </div>

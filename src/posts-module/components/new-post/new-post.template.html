@@ -21,12 +21,15 @@
                 </div>
             </md-input-container>
 
-            <md-button>
+
+
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="center">
+            <md-button class="md-raised md-primary">
                 <label for="file-input">Выберете фото</label>
             </md-button>
             <input id="file-input" type="file" ngf-select="" ng-model="$ctrl.picFile" style="display:none;" name="file" ngf-accept="'image/*'" required>
-
-        </md-card-content>
+        </md-card-actions>
         <img ngf-src="$ctrl.picFile">
 
         <md-card-actions layout="row" layout-align="end center">

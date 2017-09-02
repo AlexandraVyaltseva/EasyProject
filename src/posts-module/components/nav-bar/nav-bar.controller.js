@@ -6,13 +6,13 @@ export default class {
         this.currentNavItem = 'posts';
     }
     $onInit() {
-        console.log(this.$state.current);
+        // console.log(this.$state.current);
         this.currentNavItem = 'posts';
     }
 
     logout() {
         this.userService.logoutUser().then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             this.userService.currentUser = response.data;
             this.userService.isAuth = false;
             this.$state.go('posts');

@@ -7,11 +7,10 @@ export default class Controller {
     }
 
     registerUser() {
-        console.log(this.formModel);
         this.userService.registerUser(this.formModel).then(response => {
-            console.log(response.data);
             if (response.data != false) {
                 this.formModel = {};
+                this.userService.setUser(response.data);
                 this.$state.go('posts');
             } else {
                 this.formModel = {};
