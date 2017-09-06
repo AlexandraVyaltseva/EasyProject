@@ -10,6 +10,8 @@ export default class Controller {
     loginUser() {
         this.userService.loginUser(this.formModel).then(response => {
             this.formModel = {};
+            this.signinForm.$setPristine();
+            this.signinForm.$setUntouched();
             if (response.data != false) {
                 this.userService.setUser(response.data);
                 this.$state.go('myposts');

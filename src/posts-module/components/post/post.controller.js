@@ -5,14 +5,8 @@ export default class {
         this.userService = userService;
         this.$mdDialog = $mdDialog;
 
-        this.buttonText = 'Показать комментарии';
         this.isShown = false;
         this.isEdit = false;
-    }
-
-    $onInit() {
-        this.post = this.post;
-        this.id = this.post.id;
     }
 
     showConfirm(ev) {
@@ -24,16 +18,10 @@ export default class {
             .cancel('Отмена');
 
         this.$mdDialog.show(confirm).then(() => {
-            // this.status = 'Вы решили удалить пост.';
-            // console.log(this.status);
-
             this.postService.deletePost(this.post.id).then(() => {
                 this.onDelete(this.post);
             })
-        }, () => {
-            // this.status = 'Вы решили сохранить пост.';
-            // console.log(this.status);
-        });
+        }, () => {});
     }
 
     cancelEdit() {
@@ -46,25 +34,25 @@ export default class {
 
     changePost(post) {
         this.postService.changePost(post).then(() => {
-            //console.log("Edit post!");
+            this.post.title = post.title;
+            this.post.description = post.description;
             this.isEdit = false;
         });
     }
 
     showComments() {
         if (this.isShown === false && this.comments == null) {
-            this.commentService.getComments(this.id).then(response => {
+            this.isShown = true;
+            this.commentService.getComments(this.post.id).then(response => {
+                console.log(response.data);
                 this.comments = response.data;
-                this.buttonText = 'Скрыть комментарии';
                 this.isShown = true;
 
             });
         } else {
             if (this.isShown === false) {
-                this.buttonText = 'Скрыть комментарии';
                 this.isShown = true;
             } else {
-                this.buttonText = 'Показать комментарии';
                 this.isShown = false;
             }
         }

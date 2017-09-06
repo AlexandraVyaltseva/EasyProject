@@ -5,7 +5,6 @@ export default {
     template,
     controller,
     bindings: {
-        id: '=',
-        comments: '='
+        onAdd: '&'
     }
 }

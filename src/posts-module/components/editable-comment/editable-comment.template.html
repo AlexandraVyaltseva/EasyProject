@@ -4,7 +4,7 @@
             <label> Ваш комментарий</label>
             <input type="text" required name="text" ng-model="$ctrl.formModel.text"></input>
         </md-input-container>
-        <div layout="row" layout-align="end center">
+        <div layout="row" layout-align="end center" style="margin-top: 10px;">
             <md-button type="submit" ng-disabled="editcommentForm.$invalid || ($ctrl.formModel.text==$ctrl.comment.text)">Сохранить</md-button>
             <md-button ng-click="$ctrl.cancelForm()">Отмена</md-button>
         </div>

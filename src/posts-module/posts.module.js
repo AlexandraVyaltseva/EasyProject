@@ -6,6 +6,9 @@ import 'angular-ui-router'
 import 'angular-material-icons'
 import 'ng-file-upload'
 import 'angular-material-icons'
+import 'angular-moment'
+import 'angular-animate'
+import 'angular-messages'
 
 import routing from './routing'
 import theme from './theme'
@@ -29,7 +32,7 @@ import userService from './services/user-data.service';
 import httpService from './services/http.service'
 
 
-angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource', 'ngFileUpload', 'ngMdIcons'])
+angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource', 'ngFileUpload', 'ngMdIcons', 'angularMoment', 'ngMessages', 'ngAnimate'])
     .component('postsList', postsList)
     .component('mypostsList', mypostsList)
     .component('post', post)
@@ -47,4 +50,7 @@ angular.module('postsModule', ['ngMaterial', 'ui.router', 'ngResource', 'ngFileU
     .service('postService', postService)
     .service('commentService', commentService)
     .service('userService', userService)
-    .service('httpService', httpService);
+    .service('httpService', httpService)
+    .run((amMoment) => {
+        amMoment.changeLocale('RU');
+    });

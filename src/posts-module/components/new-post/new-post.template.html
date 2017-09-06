@@ -1,11 +1,11 @@
-<form name="newpostForm" ng-submit="$ctrl.addPost()">
+<form name="$ctrl.newpostForm" ng-submit="$ctrl.addPost()">
     <md-card>
         <md-card-title>
             <md-card-title-text>
                 <md-input-container>
                     <label>Название</label>
                     <input class="md-headline" required name="title" ng-model="$ctrl.formModel.title">
-                    <div ng-messages="$ctrl.formModel.title.$error">
+                    <div ng-messages="$ctrl.newpostForm.title.$error">
                         <div ng-message="required">Введите название</div>
                     </div>
                 </md-input-container>
@@ -15,12 +15,11 @@
         <md-card-content layout="column">
             <md-input-container>
                 <label>Описание</label>
-                <textarea rows="4" required name="" ng-model="$ctrl.formModel.description"></textarea>
-                <div ng-messages="$ctrl.formModel.description.$error">
+                <textarea rows="4" required name="description" ng-model="$ctrl.formModel.description"></textarea>
+                <div ng-messages="$ctrl.newpostForm.description.$error">
                     <div ng-message="required">Введите описание</div>
                 </div>
             </md-input-container>
-
 
 
         </md-card-content>
@@ -33,8 +32,7 @@
         <img ngf-src="$ctrl.picFile">
 
         <md-card-actions layout="row" layout-align="end center">
-            <md-button type="submit" class="submit" ng-disabled="newpostForm.$invalid">Опубликовать</md-button>
+            <md-button type="submit" class="submit" ng-disabled="$ctrl.newpostForm.$invalid">Опубликовать</md-button>
         </md-card-actions>
-
     </md-card>
 </form>

@@ -9,16 +9,11 @@ export default class {
     }
 
     editPost() {
-        this.post.title = this.formModel.title;
-        this.post.description = this.formModel.description;
-        this.onEdit({ post: this.post });
+        this.onEdit({ post: this.formModel });
     }
 
     $onInit() {
-        this.post = this.post;
-
-        this.formModel.title = this.post.title;
-        this.formModel.description = this.post.description;
+        this.formModel = this.post;
     }
 
 }

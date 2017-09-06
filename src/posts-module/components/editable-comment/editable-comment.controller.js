@@ -9,7 +9,6 @@ export default class {
     }
 
     $onInit() {
-        this.comment = this.comment;
         this.formModel.text = this.comment.text;
     }
 

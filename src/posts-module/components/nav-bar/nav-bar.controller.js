@@ -2,12 +2,6 @@ export default class {
     constructor(userService, $state, $rootScope) {
         this.userService = userService;
         this.$state = $state;
-
-        this.currentNavItem = 'posts';
-    }
-    $onInit() {
-        // console.log(this.$state.current);
-        this.currentNavItem = 'posts';
     }
 
     logout() {

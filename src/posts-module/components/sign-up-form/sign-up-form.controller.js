@@ -5,21 +5,23 @@ export default class Controller {
         this.$state = $state;
         this.formModel = {};
     }
-
     registerUser() {
         this.userService.registerUser(this.formModel).then(response => {
             if (response.data != false) {
                 this.formModel = {};
+                this.signupForm.$setPristine();
+                this.signupForm.$setUntouched();
                 this.userService.setUser(response.data);
                 this.$state.go('posts');
             } else {
                 this.formModel = {};
+                this.signupForm.$setPristine();
+                this.signupForm.$setUntouched();
                 this.showCustomToast();
             }
 
         });
     }
-
     showCustomToast() {
         this.$mdToast.show({
             hideDelay: 2000,
@@ -29,7 +31,4 @@ export default class Controller {
         </md-toast>`
         });
     }
-
-
-
 }

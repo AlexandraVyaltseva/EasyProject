@@ -6,21 +6,20 @@
         <p ng-if="$ctrl.comment.edited!=null"> Изменен {{$ctrl.comment.edited| date:'dd.MM.yyyy HH:mm'}} </p>
     </div>
 
-    <div ng-if="$ctrl.comment.author_id === $ctrl.userService.currentUser.id">
-        <md-menu md-position-mode="target-right target">
-            <md-button class="md-icon-button" ng-click="$mdMenu.open()">
-                <md-icon style="height: 16px; width: 16px; min-height: 16px; min-width: 16px;" md-svg-icon="data/icons/ic_more_vert_black_18px.svg"></md-icon>
-            </md-button>
-            <md-menu-content>
-                <md-menu-item>
-                    <md-button ng-click="$ctrl.editMode()" aria-label="Edit">Изменить</md-button>
-                </md-menu-item>
-                <md-menu-item>
-                    <md-button ng-click="$ctrl.delete()" aria-label="Remove">Удалить</md-button>
-                </md-menu-item>
-            </md-menu-content>
-        </md-menu>
-    </div>
+    <md-menu class="md-secondary" md-position-mode="target-right target" ng-if="$ctrl.comment.author_id === $ctrl.userService.currentUser.id">
+        <md-button class="md-icon-button" ng-click="$mdMenu.open()">
+            <ng-md-icon icon="more_vert" size="20"></ng-md-icon>
+        </md-button>
+        <md-menu-content>
+            <md-menu-item>
+                <md-button ng-click="$ctrl.editMode()" aria-label="Edit">Изменить</md-button>
+            </md-menu-item>
+            <md-menu-item>
+                <md-button ng-click="$ctrl.delete()" aria-label="Remove">Удалить</md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+
 </md-list-item>
 
 <md-list-item ng-if="$ctrl.isEdit==true">
