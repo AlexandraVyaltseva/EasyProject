@@ -15,8 +15,6 @@ export default class {
 
     addComment() {
         this.onAdd({ comment: this.formModel });
-        this.formModel = {};
-        this.newcommentForm.$setPristine();
-        this.newcommentForm.$setUntouched();
+        this.cancelForm();
     }
 }

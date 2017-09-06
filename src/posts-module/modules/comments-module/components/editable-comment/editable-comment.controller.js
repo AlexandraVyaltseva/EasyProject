@@ -9,7 +9,7 @@ export default class {
     }
 
     $onInit() {
-        this.formModel.text = this.comment.text;
+        this.formModel = Object.assign({}, this.comment);
     }
 
     cancelForm() {
@@ -17,8 +17,7 @@ export default class {
     }
 
     editComment() {
-        this.comment.text = this.formModel.text;
-        this.onEdit({ comment: this.comment });
+        this.onEdit({ comment: this.formModel });
     }
 
 }

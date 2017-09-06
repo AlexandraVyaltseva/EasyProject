@@ -13,7 +13,8 @@ export default class {
     }
 
     $onInit() {
-        this.formModel = this.post;
+        this.formModel = Object.assign({}, this.post);
+        //this.formModel = this.post;
     }
 
 }

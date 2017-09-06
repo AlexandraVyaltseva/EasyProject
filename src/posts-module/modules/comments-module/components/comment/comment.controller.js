@@ -11,6 +11,7 @@ export default class {
 
     changeComment(comment) {
         this.commentService.changeComment(comment).then(() => {
+            this.comment.text = comment.text;
             this.isEdit = false;
         });
     }

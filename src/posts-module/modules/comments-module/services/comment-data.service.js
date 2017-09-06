@@ -1,6 +1,6 @@
 export default class Service {
     constructor($http, httpService) {
-        this.urlBase = 'http://localhost:3000/';
+        // this.urlBase = 'http://localhost:3000/';
         this.httpService = httpService;
     }
 
