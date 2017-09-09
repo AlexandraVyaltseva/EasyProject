@@ -21,6 +21,11 @@ export default class {
                 url: "/signup",
                 template: '<signup-form></signup-form>',
                 data: { authenticate: false }
+            })
+            .state('change-user-info', {
+                url: "/change-user-info",
+                template: '<change-user></change-user>',
+                data: { authenticate: false }
             });
 
         $urlRouterProvider.otherwise('/posts');

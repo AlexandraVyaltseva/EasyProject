@@ -1,0 +1,26 @@
+<form flex-xs="90" flex-offset-xs="5" flex-sm="60" flex-offset-sm="20" flex="30" flex-offset="35" ng-if="$ctrl.userService.isAuth==true" name="$ctrl.changeUserInfoForm" ng-submit="$ctrl.changeUser()">
+    <div layout="column">
+        <h3 class="md-primary">Информация профиля</h3>
+
+        <md-input-container>
+            <label>Имя</label>
+            <input ng-disabled="$ctrl.isEdit == false" required name="name" ng-model="$ctrl.formModel.name">
+            <div ng-messages="$ctrl.changeUserInfoForm.name.$error">
+                <div ng-message="required">Введите имя</div>
+            </div>
+        </md-input-container>
+
+        <md-input-container>
+            <label>Логин</label>
+            <input ng-disabled="$ctrl.isEdit == false" required name="login" ng-model="$ctrl.formModel.login">
+            <div ng-messages="$ctrl.changeUserInfoForm.login.$error">
+                <div ng-message="required">Введите логин</div>
+            </div>
+        </md-input-container>
+        <div layout="end center">
+            <md-button ng-show="$ctrl.isEdit==true" type="submit" class="md-raised md-primary" ng-disabled="$ctrl.changeUserInfoForm.$invalid || ($ctrl.formModel.name==$ctrl.userService.currentUser.name && $ctrl.formModel.login==$ctrl.userService.currentUser.login)">Сохранить изменения</md-button>
+            <md-button ng-show="$ctrl.isEdit==false" ng-click="$ctrl.editUser()" class="md-raised md-primary">Изменить</md-button>
+            <md-button ng-show="$ctrl.isEdit==true" class="md-raised" ng-click="$ctrl.resetUser()">Отмена</md-button>
+        </div>
+    </div>
+</form>

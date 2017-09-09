@@ -6,13 +6,13 @@
         <md-button ng-if="$ctrl.userService.isAuth === false" ui-sref="signin" ui-sref-active="md-primary" name="signin" value="signin"> Вход </md-button>
         <md-button ng-if="$ctrl.userService.isAuth === false" ui-sref="signup" ui-sref-active="md-primary" name="signup" value="signup"> Регистрация </md-button>
         <md-menu ng-if="$ctrl.userService.isAuth === true">
-            <md-button ng-click="$mdOpenMenu()">
+            <md-button ng-click="$mdMenu.open()">
                 {{$ctrl.userService.currentUser.name}}
             </md-button>
             <md-menu-content>
-                <!-- <md-menu-item>
-                    <md-button>Профиль</md-button>
-                </md-menu-item> -->
+                <md-menu-item>
+                    <md-button ui-sref="change-user-info">Профиль</md-button>
+                </md-menu-item>
                 <md-menu-item>
                     <md-button ng-click="$ctrl.logout()">Выход</md-button>
                 </md-menu-item>

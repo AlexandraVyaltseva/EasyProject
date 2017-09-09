@@ -30,4 +30,8 @@ export default class userService {
     getCurrentUser() {
         return this.httpService.request('GET', 'getCurrentUser', {});
     }
+
+    changeUser(user) {
+        return this.httpService.request('GET', 'changeUser/' + user.login + '/' + user.name + '', {});
+    }
 }
