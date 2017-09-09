@@ -14,7 +14,6 @@ export default class {
 
     $onInit() {
         this.formModel = Object.assign({}, this.post);
-        //this.formModel = this.post;
     }
 
 }
