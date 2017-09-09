@@ -30,8 +30,8 @@ export default class Controller {
                 this.isEdit = false;
                 this.userService.setUser(response.data);
                 this.showCustomToast('Информация сохранена.');
-                this.newcommentForm.$setPristine();
-                this.newcommentForm.$setUntouched();
+                this.changeUserInfoForm.$setPristine();
+                this.changeUserInfoForm.$setUntouched();
 
             } else {
                 this.showCustomToast('Такой логин уже существует!');
