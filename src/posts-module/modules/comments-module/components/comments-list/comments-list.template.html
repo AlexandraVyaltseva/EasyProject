@@ -1,6 +1,6 @@
 <md-list>
-    <comment ng-repeat="comment in $ctrl.comments | orderBy:comment.date" comment="comment" on-delete="$ctrl.deleteComment(comment)"></comment>
-    <md-card-content ng-if="$ctrl.userService.isAuth">
-        <new-comment on-add="$ctrl.addComment(comment)" flex></new-comment>
+    <comment ng-repeat="comment in $ctrl.comments | orderBy:'date'" " comment="comment " on-delete="$ctrl.deleteComment(comment) "></comment>
+    <md-card-content ng-if="$ctrl.userService.isAuth ">
+        <new-comment on-add="$ctrl.addComment(comment) " flex></new-comment>
     </md-card-content>
 </md-list>
