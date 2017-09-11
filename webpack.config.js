@@ -1,10 +1,12 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const path = require('path');
 
 module.exports = {
     entry: "./src/app.js",
     output: {
-        filename: "build.js"
+        path: path.resolve(__dirname, "build"),
+        filename: "build.js",
     },
     module: {
         rules: [{
